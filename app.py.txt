@@ -1,0 +1,18 @@
+import streamlit as st
+import fitz  # PyMuPDF
+from transformers import pipeline
+
+st.title("🩺 Medical Paper Summarizer")
+
+uploaded_file = st.file_uploader("Upload a medical paper (PDF)")
+if uploaded_file:
+    text = ""
+    with fitz.open(stream=uploaded_file.read(), filetype="pdf") as pdf:
+        for page in pdf:
+            text += page.get_text()
+
+    summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
+    summary = summarizer(text[:2000], max_length=150, min_length=30, do_sample=False)
+
+    st.subheader("Summary:")
+    st.write(summary[0]['summary_text'])
