@@ -1,4 +1,4 @@
-pip install PyMuPDF
+
 import streamlit as st
 import fitz  # PyMuPDF
 import nltk
@@ -50,6 +50,7 @@ if uploaded_file is not None:
             summary = summarizer(pdf_text[:2000], max_length=150, min_length=30, do_sample=False)
             st.subheader("📑summary:")
             st.write(summary[0]['summary_text'])
+
 
 
 
