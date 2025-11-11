@@ -32,7 +32,7 @@ st.write("medic paper  (PDF) .")
 uploaded_file = st.file_uploader("Upload your medical paper (PDF)", type=["pdf"])
 
 if uploaded_file is not None:
-    with st.spinner("جارٍ استخراج النص من الملف..."):
+    with st.spinner("..."):
         pdf_text = extract_text_from_pdf(uploaded_file)
 
     st.success("تم استخراج النص بنجاح ✅")
@@ -50,6 +50,7 @@ if uploaded_file is not None:
             summary = summarizer(pdf_text[:2000], max_length=150, min_length=30, do_sample=False)
             st.subheader("📑summary:")
             st.write(summary[0]['summary_text'])
+
 
 
 
