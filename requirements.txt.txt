@@ -1,4 +1,6 @@
 streamlit
+PyMuPDF
+nltk
 transformers
+sentence-transformers
 torch
-pymupdf
