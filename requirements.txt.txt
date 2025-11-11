@@ -1,7 +1,6 @@
 streamlit
-PyMuPDF
-nltk
+PyMuPDF==1.24.9
 transformers
-sentence-transformers
 torch
-
+nltk
+sentence-transformers
