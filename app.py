@@ -10,6 +10,7 @@ from sentence_transformers import SentenceTransformer
 
 nltk.download('punkt')
 nltk.download('stopwords')
+nltk.download('punkt_tab')
 
 #  PDF
 def extract_text_from_pdf(uploaded_file):
@@ -50,6 +51,7 @@ if uploaded_file is not None:
             summary = summarizer(pdf_text[:2000], max_length=150, min_length=30, do_sample=False)
             st.subheader("📑summary:")
             st.write(summary[0]['summary_text'])
+
 
 
 
