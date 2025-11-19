@@ -1,6 +1,6 @@
-streamlit
-PyMuPDF==1.24.9
-transformers
-torch
-nltk
-sentence-transformers
+streamlit==1.39.0
+transformers==4.45.1
+torch==2.5.1
+PyMuPDF==1.24.11
+nltk==3.9.1
+gTTS==2.5.1
