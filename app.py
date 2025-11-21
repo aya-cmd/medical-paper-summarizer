@@ -20,12 +20,15 @@ def extract_text_from_pdf(upload_file):
                 for pag in pdf:
                     text += pag.get_text()
         else:  # Uploaded file
-            with fitz.open(stream=upload_file.read(), filetype='pdf') as pdf:
+             pdf_bytes = upload_file.read()
+             with fitz.open(stream=pdf_bytes, filetype='pdf') as pdf:
+            
                 for pag in pdf:
                     text += pag.get_text()
-    except Exception:
-        pass
-    return text
+    except Exception :
+       return None
+
+    return text 
 
 
 def cleac(text):
@@ -75,6 +78,8 @@ st.set_page_config(page_title="📄 Medical Paper Summarizer + TTS", layout="wid
 st.title("📄 Medical Paper Summarizer & Text-to-Speech 🩺")
 st.write("Upload a medical paper in PDF format — the app will extract the text, summarize it, and convert it to speech.")
 
+st.write("")
+
 uploaded_file = st.file_uploader("Upload your medical paper (PDF)", type=["pdf"])
 
 summary_length = st.slider("Choose summary length (approx tokens)", 50, 500, 150)
@@ -121,4 +126,4 @@ if uploaded_file is not None or (use_local_path and local_path):
 
 else:
     st.info("Upload a PDF or enable local path to start.")
-
+        
