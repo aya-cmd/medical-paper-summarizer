@@ -38,7 +38,7 @@ def clean_text(text):
 def summarize_text(text, summary_length=200):
     summarizer = pipeline(
         'summarization',
-        model='sshleifer/distilbart-cnn-12-6'  # خفيف على أي جهاز
+        model='sshleifer/distilbart-cnn-12-6'  
     )
 
     max_chunk = 800
@@ -113,3 +113,4 @@ else:
     
 
        
+
